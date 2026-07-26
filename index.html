@@ -92,7 +92,7 @@
     <div class="info-bar">
         <div>分数：<span id="score">0</span></div>
         <div>步数：<span id="step">35</span></div>
-        <div>目标：1200</div>
+        <div>目标：5200</div>
     </div>
     <div id="gameBoard"></div>
 
@@ -105,12 +105,11 @@
     </div>
 
 <script>
-// ========== 配置项（无需修改！github上传后自动匹配路径）==========
+// ========== 游戏配置 目标5200分 ==========
 const COL = 6;
 const ROW = 7;
-const TARGET_SCORE = 1200;
+const TARGET_SCORE = 5200;
 const MAX_STEP = 35;
-// Github相对路径，图片和html放在同一个文件夹，直接使用
 const IMG_LIST = [
     "img1.jpg",
     "img2.jpg",
@@ -206,7 +205,6 @@ function bindDragEvent(dom){
         }
     }
     function move(e){
-        // 禁止页面滚动
         if(e.type === 'touchmove') e.preventDefault();
     }
     function endDrag(e){
@@ -351,14 +349,14 @@ function updateUI(){
 
 function checkGameOver(){
     if(score >= TARGET_SCORE){
-        popTitle.innerText = "🎉 恭喜通关！";
+        popTitle.innerText = "🎉 王宇宝宝你真棒";
         popText.innerText = `最终得分：${score}，剩余步数：${stepLeft}`;
         popMask.style.display = "flex";
         return;
     }
     if(stepLeft <= 0){
-        popTitle.innerText = "💔 挑战失败";
-        popText.innerText = `得分${score}，目标${TARGET_SCORE}，再接再厉！`;
+        popTitle.innerText = "挑战成功";
+        popText.innerText = `得分${score}，目标${TARGET_SCORE}，你是最棒的！`;
         popMask.style.display = "flex";
     }
 }
